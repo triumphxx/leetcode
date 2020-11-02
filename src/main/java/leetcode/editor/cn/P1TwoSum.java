@@ -20,16 +20,21 @@ import java.util.Map;
 public class P1TwoSum {
     public static void main(String[] args) {
         Solution solution = new P1TwoSum().new Solution();
-        int nums[] = {10, 20, 30, 5};
-        int target = 15;
+        int[] nums = {10, 20, 30, 5};
+        int target = 50;
         int[] ints = solution.twoSum(nums, target);
         System.out.println(ints);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
+    //时间复杂度O(n)
     class Solution {
         public int[] twoSum(int[] nums, int target) {
+            //定义一个Map
             Map<Integer,Integer> map=new HashMap<Integer,Integer>();
+            //循环数组，按逆向思维进行解题
+            //因为是数组中的俩个数相加得到目标值，
+            //那么用目标值减去数组中的其中一个值如果存在另一个则找到其中一个
             for(int i=0;i<nums.length;i++){
                 Integer index=map.get(target-nums[i]);
                 System.out.println(index);
@@ -39,7 +44,8 @@ public class P1TwoSum {
                     return new int[]{i,index};
                 }
             }
-            return new int[]{0,0};}
+            return new int[]{0,0};
+        }
     }
     //leetcode submit region end(Prohibit modification and deletion)
 
