@@ -33,15 +33,24 @@ package leetcode.editor.cn;
 public class P7ReverseInteger {
     public static void main(String[] args) {
         Solution solution = new P7ReverseInteger().new Solution();
-        // TO TEST
+        int reverse = solution.reverse(-12345);
+        System.out.println(reverse);
+        System.out.println(12 % 10);
+        System.out.println(12 / 10);
     }
 
-    //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int reverse(int x) {
-            return 0;
+            long result = 0;
+            while (x != 0) {
+                result = result * 10 + x % 10;
+                x = x /10;
+            }
+            if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE){
+                result = 0;
+            }
+            return (int)result;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
 
 }
